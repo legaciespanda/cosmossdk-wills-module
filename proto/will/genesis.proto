@@ -1,0 +1,17 @@
+syntax = "proto3";
+package willstorage.will;
+
+import "gogoproto/gogo.proto";
+import "will/params.proto";
+import "will/will.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "willstorage/x/will/types";
+
+// GenesisState defines the will module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  repeated Will willList = 2 [(gogoproto.nullable) = false];
+  uint64 willCount = 3;
+  // this line is used by starport scaffolding # genesis/proto/state
+}

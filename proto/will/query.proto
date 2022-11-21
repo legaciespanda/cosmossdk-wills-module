@@ -1,0 +1,58 @@
+syntax = "proto3";
+package willstorage.will;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "will/params.proto";
+import "will/will.proto";
+// this line is used by starport scaffolding # 1
+
+option go_package = "willstorage/x/will/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/willstorage/will/params";
+  }
+  // Queries a Will by id.
+	rpc Will(QueryGetWillRequest) returns (QueryGetWillResponse) {
+		option (google.api.http).get = "/willstorage/will/will/{id}";
+	}
+
+	// Queries a list of Will items.
+	rpc WillAll(QueryAllWillRequest) returns (QueryAllWillResponse) {
+		option (google.api.http).get = "/willstorage/will/will";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetWillRequest {
+	uint64 id = 1;
+}
+
+message QueryGetWillResponse {
+	Will Will = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllWillRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllWillResponse {
+	repeated Will Will = 1 [(gogoproto.nullable) = false];
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+// this line is used by starport scaffolding # 3

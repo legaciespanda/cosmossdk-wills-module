@@ -1,0 +1,19 @@
+syntax = "proto3";
+package willstorage.will;
+
+option go_package = "willstorage/x/will/types";
+
+message Will {
+  uint64 id = 1;
+  string testatorname = 2; 
+  string testatorid = 3; 
+  string beneficiaries = 4; 
+  string assets = 5; 
+  string executorname = 6; 
+  string executorid = 7; 
+  string datecreated = 8; 
+  string timecreated = 9; 
+  string dateexecuted = 10; 
+  string timeexecuted = 11; 
+  
+}
