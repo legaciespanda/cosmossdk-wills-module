@@ -30499,6 +30499,8 @@ paths:
                       type: string
                     timeexecuted:
                       type: string
+                    status:
+                      type: string
               pagination:
                 type: object
                 properties:
@@ -30638,6 +30640,8 @@ paths:
                   dateexecuted:
                     type: string
                   timeexecuted:
+                    type: string
+                  status:
                     type: string
         default:
           description: An unexpected error response.
@@ -52123,6 +52127,8 @@ definitions:
     title: >-
       SignatureCounts contains information about signature reporting for a
       number of blocks
+  willstorage.will.MsgCreateWillsResponse:
+    type: object
   willstorage.will.Params:
     type: object
     description: Params defines the parameters for the module.
@@ -52156,6 +52162,8 @@ definitions:
             dateexecuted:
               type: string
             timeexecuted:
+              type: string
+            status:
               type: string
       pagination:
         type: object
@@ -52211,6 +52219,8 @@ definitions:
             type: string
           timeexecuted:
             type: string
+          status:
+            type: string
   willstorage.will.QueryParamsResponse:
     type: object
     properties:
@@ -52243,4 +52253,6 @@ definitions:
       dateexecuted:
         type: string
       timeexecuted:
+        type: string
+      status:
         type: string

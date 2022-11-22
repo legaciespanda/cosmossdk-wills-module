@@ -15,5 +15,6 @@ message Will {
   string timecreated = 9; 
   string dateexecuted = 10; 
   string timeexecuted = 11; 
+  string status = 12;
   
 }

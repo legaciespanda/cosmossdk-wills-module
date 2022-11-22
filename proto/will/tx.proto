@@ -7,7 +7,26 @@ option go_package = "willstorage/x/will/types";
 
 // Msg defines the Msg service.
 service Msg {
-    // this line is used by starport scaffolding # proto/tx/rpc
+      rpc CreateWills(MsgCreateWills) returns (MsgCreateWillsResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgCreateWills {
+  string creator = 1;
+  string testatorname = 2;
+  string testatorid = 3;
+  string beneficiaries = 4;
+  string assets = 5;
+  string executorname = 6;
+  string executorid = 7;
+  string datecreated = 8;
+  string timecreated = 9;
+  string dateexecuted = 10;
+  string timeexecuted = 11;
+  string status = 12;
+}
+
+message MsgCreateWillsResponse {
 }
 
 // this line is used by starport scaffolding # proto/tx/message

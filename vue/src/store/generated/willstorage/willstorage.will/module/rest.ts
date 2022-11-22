@@ -83,6 +83,8 @@ export interface V1Beta1PageResponse {
   total?: string;
 }
 
+export type WillMsgCreateWillsResponse = object;
+
 /**
  * Params defines the parameters for the module.
  */
@@ -128,6 +130,7 @@ export interface WillWill {
   timecreated?: string;
   dateexecuted?: string;
   timeexecuted?: string;
+  status?: string;
 }
 
 export type QueryParamsType = Record<string | number, any>;

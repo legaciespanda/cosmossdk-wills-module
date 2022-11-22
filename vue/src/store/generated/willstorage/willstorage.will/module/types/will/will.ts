@@ -16,6 +16,7 @@ export interface Will {
   timecreated: string;
   dateexecuted: string;
   timeexecuted: string;
+  status: string;
 }
 
 const baseWill: object = {
@@ -30,6 +31,7 @@ const baseWill: object = {
   timecreated: "",
   dateexecuted: "",
   timeexecuted: "",
+  status: "",
 };
 
 export const Will = {
@@ -66,6 +68,9 @@ export const Will = {
     }
     if (message.timeexecuted !== "") {
       writer.uint32(90).string(message.timeexecuted);
+    }
+    if (message.status !== "") {
+      writer.uint32(98).string(message.status);
     }
     return writer;
   },
@@ -109,6 +114,9 @@ export const Will = {
           break;
         case 11:
           message.timeexecuted = reader.string();
+          break;
+        case 12:
+          message.status = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -175,6 +183,11 @@ export const Will = {
     } else {
       message.timeexecuted = "";
     }
+    if (object.status !== undefined && object.status !== null) {
+      message.status = String(object.status);
+    } else {
+      message.status = "";
+    }
     return message;
   },
 
@@ -198,6 +211,7 @@ export const Will = {
       (obj.dateexecuted = message.dateexecuted);
     message.timeexecuted !== undefined &&
       (obj.timeexecuted = message.timeexecuted);
+    message.status !== undefined && (obj.status = message.status);
     return obj;
   },
 
@@ -257,6 +271,11 @@ export const Will = {
       message.timeexecuted = object.timeexecuted;
     } else {
       message.timeexecuted = "";
+    }
+    if (object.status !== undefined && object.status !== null) {
+      message.status = object.status;
+    } else {
+      message.status = "";
     }
     return message;
   },
